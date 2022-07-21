@@ -1,0 +1,80 @@
+<div class="container-sm">
+  <div class="row">
+    <div class="col-sm-8" style="margin-top: 0.5rem;">
+      <button
+        type="button"
+        class="btn btn-lg btn-success"
+        style="border-radius: 1rem"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        <i class="fa-solid fa-folder-plus"></i>&nbsp;&nbsp;Create Folder</button
+      >&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Folder Name</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          class="form-control"
+          id="formGroupExampleInput"
+          placeholder="&nbsp;&nbsp;Type Folder Name"
+          ng-model="foldername"
+        />
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          ng-click="createfolder(foldername)"
+        >
+          Create
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-5 g-4" style="margin-top: 1rem">
+  <center ng-repeat="folder in folders">
+    <div class="col">
+      <button
+        ng-click="openfolder(folder.id)"
+        style="background-color: white; border: none"
+      >
+        <i
+          class="fa-solid fa-folder fa-3x"
+          ui-sref="dashboard.openfolder({frid: {{'folder.id'}}})"
+          style="cursor: pointer; color: #eda024"
+        ></i>
+      </button>
+      <br />
+      <div class="container">
+        {{folder.Folder}}
+        <button type="button" class="btn" ng-click="deletefolder(folder.id)" style="margin-bottom: 0.3rem;">
+          <i class="fa-solid fa-trash" style="color: #ea4335;"></i>
+        </button>
+      </div>
+    </div>
+  </center>
+</div>

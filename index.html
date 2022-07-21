@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.js"
+      integrity="sha512-5J08Lq3B2EfuPrNSYckUPHKYHaUhCQ4MdeObdcR0YZnr8eapZ7XMA2ejUyQYpWN+fwO48wuxsL5KDZYIVVVxvg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="drive.js"></script>
+    <title>Document</title>
+  </head>
+  <body ng-app="myApp">
+    <div class="container-fluid" id="mainbar">
+      <div class="row">
+        <div class="col-sm-3" style="padding-top: 0.5rem">
+          <img
+            class="img-fluid"
+            src="https://ssl.gstatic.com/images/branding/product/2x/drive_2020q4_48dp.png"
+            alt=""
+            style="height: 45px; width: 45px"
+          />&nbsp;&nbsp;&nbsp;<span style="font-size: 1.8rem; padding-top: 1px"
+            >Google</span
+          >&nbsp;&nbsp;<span
+            style="color: #5f6368; font-size: 1.45rem; padding-top: 1px"
+            >Drive</span
+          >
+        </div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <button
+            type="button"
+            ui-sref="adminlogin"
+            style="
+              margin-top: 0.5rem;
+              background-color: #ffce4b;
+              color: black;
+              border: 1px solid #ffce4b;
+              height: 3rem;
+              width: 12rem;
+              border-radius: 0.2rem;
+            "
+          >
+            <span style="font-size: 1.3rem">Admin Login</span></button
+          >&nbsp;&nbsp;&nbsp;
+          <button
+            type="button"
+            ui-sref="login"
+            style="
+              margin-top: 0.5rem;
+              background-color: white;
+              color: #1a73e8;
+              border: 1px solid #dadce0;
+              height: 3rem;
+              width: 12rem;
+              border-radius: 0.2rem;
+            "
+          >
+            <span style="font-size: 1.3rem">Go to Drive</span></button
+          >&nbsp;&nbsp;&nbsp;
+          <button
+            type="button"
+            ui-sref="register"
+            style="
+              margin-top: 0.5rem;
+              height: 3rem;
+              width: 12rem;
+              color: white;
+              background-color: #1a73e8;
+              border: 1px solid #1a73e8;
+              border-radius: 0.2rem;
+            "
+          >
+            <span style="font-size: 1.3rem">Try Drive</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div ui-view></div>
+  </body>
+</html>

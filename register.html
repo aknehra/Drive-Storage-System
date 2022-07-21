@@ -1,0 +1,133 @@
+<div class="container-fluid" style="margin-top: 5rem">
+  <div class="row"><h1 style="font-size: 4rem">Create Your Account</h1></div>
+  <div class="row">
+    <div class="col-sm-6" style="margin-top: 1rem">
+      <img
+        src="https://lh3.googleusercontent.com/BOuhsbzsj5tFHX0Ii8ozdRfqV8hJ9TLwyF2YwI7KYN5xGz0thz-oMkm2RzlohS50CP60pugsFst5LjtttCRZqVXyglYZLmwj7JXFEg=rw-e365-v0-w2712"
+        alt=""
+        style="height: 20rem; width: 35rem"
+      />
+    </div>
+    <div class="col-sm-6 mt-4" style="padding-right: 4rem">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="mb-3">
+            <!-- <i class="fa-solid fa-user fa-2x"></i> -->
+            <input
+              type="text"
+              class="form-control"
+              id="fname"
+              placeholder="First Name"
+              ng-model="fname"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="lname"
+              placeholder="Last Name"
+              ng-model="lname"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="dob"
+              placeholder="Date of Birth"
+              onfocus="(this.type = 'date')"
+              ng-model="dob"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            ng-model="gender"
+          >
+            <option hidden value="">Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              placeholder="Email"
+              ng-model="email"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="Create your Unique Username"
+              ng-model="username"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="pass"
+              placeholder="Password"
+              ng-model="pass"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="mb-3">
+            <input
+              type="number"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              class="form-control"
+              id="mobile"
+              placeholder="Phone Number"
+              ng-model="mobile"
+              maxlength="10"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="cpass"
+              placeholder="Confirm Password"
+              ng-model="cpass"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="d-grid gap-2 col-12 mx-auto">
+        <button class="btn btn-primary" type="button" ng-click="register()">
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

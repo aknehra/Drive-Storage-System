@@ -1,0 +1,167 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-4">
+      <form>
+        <label for="upload_frfile"
+          ><i
+            class="fa-solid fa-file-arrow-up fa-3x"
+            style="cursor: pointer; margin-left: 2.5rem"
+          ></i
+          >&nbsp;&nbsp;
+          <h4>Upload file</h4></label
+        >
+        <input
+          type="file"
+          class="form-control"
+          id="upload_frfile"
+          multiple
+          style="display: none"
+        />
+      </form>
+    </div>
+    <div class="col-4" style="padding-left: 3.5rem; padding-top: 1rem">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button
+        type="button"
+        class="btn btn-lg btn-success"
+        style="border-radius: 1rem"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        <i class="fa-solid fa-folder-plus"></i>&nbsp;&nbsp;Create Folder
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Folder Name</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          class="form-control"
+          id="formGroupExampleInput"
+          placeholder="&nbsp;&nbsp;Type Folder Name"
+          ng-model="foldername"
+        />
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          ng-click="createfolder(foldername)"
+        >
+          Create
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+<center>
+  <h1 ng-show="emptyfolder" style="color: #ea4335">-- Empty Folder --</h1>
+</center>
+<div class="container-sm col-sm-12" style="margin-bottom: 2rem">
+  <div class="row row-cols-1 row-cols-md-5 g-4">
+    <center ng-repeat="folder in folders">
+      <div class="col">
+        <button
+          ng-click="openfolder(folder.id)"
+          style="background-color: white; border: none"
+        >
+          <i
+            class="fa-solid fa-folder fa-3x"
+            style="cursor: pointer; color: #eda024"
+            ui-sref="dashboard.openfolder({frid: {{'folder.id'}}})"
+          ></i>
+        </button>
+        <br />
+        <div class="container">
+          {{folder.Folder}}
+          <button
+            type="button"
+            class="btn"
+            ng-click="deletefolder(folder.id)"
+            style="margin-bottom: 0.3rem"
+          >
+            <i class="fa-solid fa-trash" style="color: #ea4335"></i>
+          </button>
+        </div>
+      </div>
+    </center>
+  </div>
+  <hr ng-hide="imgavail" />
+  <div class="row row-cols-1 row-cols-md-4 g-4" style="margin-top: 0.5rem">
+    <div class="col" ng-repeat="folderimage in folderimages">
+      <div class="card">
+        <img
+          src="{{imageurl + folderimage.Uploads}}"
+          style="height: 11.5rem; width: 14.5rem"
+          class="card-img-top img-fluid imgcard"
+          alt="..."
+        />
+        <div class="hoverbtn" style="display: flex">
+          <button
+            type="button"
+            class="btn btn-warning"
+            ng-click="viewfiles(folderimage.id)"
+          >
+            D</button
+          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button
+            type="button"
+            class="btn btn-danger"
+            ng-click="removeimg(folderimage.id)"
+          >
+            R
+          </button>
+        </div>
+        <div class="card-body">
+          <span class="card-title" style="font-size: 0.9rem"
+            >{{folderimage.Uploads.slice(15)}}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr ng-hide="fileavail" />
+  <div class="row row-cols-1 row-cols-md-4 g-4" style="margin-top: 0.5rem">
+    <div class="col" ng-repeat="folderfile in folderfiles">
+      <div class="card">
+        <img
+          src="{{imageurl + folderfile.Default_img}}"
+          style="height: 11.5rem; width: 14.5rem"
+          class="card-img-top img-fluid imgcard"
+          alt="..."
+        />
+        <div class="card-body">
+          <span class="card-title" style="font-size: 0.9rem"
+            >{{folderfile.Uploads.slice(15)}}<br /><button
+              type="button"
+              class="btn"
+              ng-click="viewfiles(folderfile.id)"
+            >
+              <i class="fa-solid fa-eye fa-2x"></i></button
+          ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

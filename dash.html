@@ -1,0 +1,417 @@
+<style>
+  #img:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  /* .imgcard:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .imgcard:hover + .hoverbtn {
+    opacity: 1;
+  }
+  .hoverbtn:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .hoverbtn:hover + .imgcard {
+    opacity: 0.5;
+  }
+  .hoverbtn {
+    position: absolute;
+    width: 60px;
+    left: 52px;
+    top: 110px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  } */
+</style>
+
+<div
+  class="container-fluid"
+  style="border-bottom: 0.5px solid rgba(0, 0, 0, 0.3)"
+>
+  <div class="row">
+    <div class="col-sm-3" style="padding-top: 0.5rem">
+      <img
+        class="img-fluid"
+        src="https://ssl.gstatic.com/images/branding/product/2x/drive_2020q4_48dp.png"
+        alt=""
+        style="height: 45px; height: 45px"
+      />&nbsp;&nbsp;<span style="color: #5f6368; font-size: 1.25rem"
+        >Drive</span
+      >
+    </div>
+    <div class="col-sm-8"></div>
+    <div class="col-sm-1" style="padding-top: 0.5rem; padding-left: 3rem">
+      <img
+        src="{{dpurl}}"
+        alt=""
+        style="border-radius: 50%; height: 2.5rem; width: 2.5rem"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight"
+      />
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">
+            Offcanvas right
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="container-sm">
+            <div class="row">
+              <center>
+                <img
+                  class="img-fluid"
+                  src="{{dpurl}}"
+                  alt=""
+                  style="
+                    height: 14rem;
+                    width: 14rem;
+                    background-color: white;
+                    border-radius: 50%;
+                  "
+                />
+              </center>
+            </div>
+            <div
+              class="row mt-1"
+              style="float: right; margin-top: -2rem; padding-right: 9.5rem"
+            >
+              <form>
+                <div class="form-group">
+                  <label for="upload_pic"
+                    ><i class="fa-solid fa-camera fa-2x"></i
+                  ></label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="upload_pic"
+                    multiple
+                    style="display: none"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="row" style="margin-top: 4rem">
+              <center>
+                <div class="col-sm-12">
+                  <h2>{{profile.name}}</h2>
+                </div>
+              </center>
+            </div>
+            <div class="row mt-2">
+              <div class="col-sm-12">
+                <center><h5>{{profile.Email}}</h5></center>
+              </div>
+            </div>
+            <div class="row" style="margin-top: 5rem">
+              <div class="col-sm-12">
+                <center>
+                  <button
+                    type="button"
+                    class="btn btn-danger btn-lg"
+                    ng-click="logout()"
+                  >
+                    Logout
+                  </button>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <!-- 36.96 -->
+    <div
+      class="col-sm-2"
+      style="
+        background-color: white;
+        border: none;
+        border-right: 0.1px solid #5f6368;
+      "
+    >
+      <div class="row" style="margin-top: 3rem">
+        <div class="col-sm-12" style="padding-left: 3.4rem">
+          <button
+            type="button"
+            class="btn btn-lg"
+            style="background-color: #ea4335; color: white; border-radius: 2rem"
+            ui-sref="dashboard.upload"
+          >
+            <i class="fa-solid fa-cloud-arrow-up"></i>&nbsp;New
+          </button>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 2rem; padding-left: 0.5rem">
+        <ul class="nav flex-column" style="font-size: 1.5rem">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              ui-sref="dashboard"
+              ng-click="drivedisplay()"
+              style="color: #5f6368"
+              ><i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;&nbsp;<i
+                class="fa-brands fa-google-drive"
+              ></i
+              >&nbsp;&nbsp;Drive</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              ui-sref="dashboard.folder"
+              style="color: #5f6368"
+              ><i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;&nbsp;<i
+                class="fa-solid fa-folder"
+              ></i
+              >&nbsp;&nbsp;Folders</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" ui-sref="dashboard.trash" style="color: #5f6368"
+              ><i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;&nbsp;<i
+                class="fa-regular fa-trash-can"
+              ></i
+              >&nbsp;&nbsp;Trash</a
+            >
+          </li>
+        </ul>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm-12">
+          <i class="fa-solid fa-cloud"></i>&nbsp;&nbsp;<span
+            style="font-size: 1.2rem"
+            >Storage&nbsp;<span style="font-size: 1rem"
+              >({{profile.PERCENTAGE}}&nbsp;%&nbsp;full)</span
+            ></span
+          >
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-sm-12">
+          <div class="progress" style="height: 0.5rem">
+            <div
+              class="progress-bar"
+              ng-style="progressbar"
+              role="progressbar"
+              aria-valuenow="50"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12" style="font-size: 0.9rem; color: #5f6368">
+          {{profile.USED_SPACE}}&nbsp;&nbsp;MB&nbsp;&nbsp;of&nbsp;&nbsp;{{profile.UPLOAD_LIMIT}}&nbsp;&nbsp;MB&nbsp;&nbsp;used
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-10">
+      <h3
+        style="
+          color: #3c4043;
+          font-size: 25px;
+          border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          font-weight: 300;
+        "
+      >
+        My Drive
+      </h3>
+      <div ui-view style="overflow-y: scroll; height: 83vh">
+        <div class="container-sm col-sm-12">
+          <div class="col-sm-6" style="margin-top: 1rem"><h2>Images</h2></div>
+          <div
+            class="row row-cols-1 row-cols-md-4 g-4"
+            style="margin-top: 0.5rem"
+          >
+            <div class="col" ng-repeat="image in images">
+              <div class="card">
+                <img
+                  src="{{imageurl + image.Uploads}}"
+                  style="height: 11.5rem; width: 14.5rem"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                  id="img"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  ng-click="driveimgbig(image.id)"
+                />
+                <div class="card-body">
+                  <span class="card-title" style="font-size: 0.9rem"
+                    >{{image.Uploads.slice(15)}}</span
+                  >
+                </div>
+              </div>
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                height
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <div class="container-fluid">
+                        <center>
+                          <div class="col-sm-12">
+                            <img
+                              src="{{imageurl + viewimg.Uploads}}"
+                              alt=""
+                              style="height: 15rem; width: 28rem"
+                            />
+                          </div>
+                        </center>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-success"
+                        data-bs-dismiss="modal"
+                        style="border-radius: 0.4rem"
+                      >
+                        <i class="fa-solid fa-download"></i>&nbsp;&nbsp;Download
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        ng-click="removeimg(viewimg.id)"
+                        data-bs-dismiss="modal"
+                      >
+                        <i class="fa-solid fa-trash-can"></i>&nbsp;&nbsp;Remove
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="col-sm-6" style="margin-top: 1rem">
+            <h2>Documents</h2>
+          </div>
+          <div
+            class="row row-cols-1 row-cols-md-4 g-4"
+            style="margin-top: 0.5rem"
+          >
+            <div class="col" ng-repeat="document in documents">
+              <div class="card">
+                <img
+                  src="{{imageurl + document.Default_img}}"
+                  style="height: 11.5rem; width: 14.5rem"
+                  class="card-img-top img-fluid imgcard"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <span class="card-title" style="font-size: 0.9rem"
+                    ><center>{{document.Uploads.slice(15)}}</center></span
+                  >
+                  <center>
+                    <div class="hoverbtn">
+                      <button
+                        class="btn"
+                        type="button"
+                        ng-click="viewdoc(document.id)"
+                      >
+                        <i
+                          class="fa-solid fa-eye fa-2x"
+                          style="color: #188038"
+                        ></i></button
+                      >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button
+                        type="button"
+                        class="btn"
+                        ng-click="removedoc(document.id)"
+                      >
+                        <i
+                          class="fa-solid fa-trash fa-2x"
+                          style="color: red"
+                        ></i>
+                      </button>
+                    </div>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="col-sm-6" style="margin-top: 1rem">
+            <h2>Audio / Video</h2>
+          </div>
+          <div
+            class="row row-cols-1 row-cols-md-4 g-4"
+            style="margin-top: 0.5rem"
+          >
+            <div class="col" ng-repeat="mp in mps">
+              <div class="card">
+                <img
+                  src="{{imageurl + mp.Default_img}}"
+                  class="card-img-top"
+                  style="height: 11.5rem; width: 14.5rem"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <span class="card-title" style="font-size: 0.9rem"
+                    ><center>{{mp.Uploads.slice(15)}}</center></span
+                  >
+                  <center>
+                    <div class="hoverbtn">
+                      <button
+                        class="btn"
+                        type="button"
+                        ng-click="viewdoc(mp.id)"
+                      >
+                        <i
+                          class="fa-solid fa-eye fa-2x"
+                          style="color: #188038"
+                        ></i></button
+                      >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button
+                        type="button"
+                        class="btn"
+                        ng-click="removedoc(mp.id)"
+                      >
+                        <i
+                          class="fa-solid fa-trash fa-2x"
+                          style="color: red"
+                        ></i>
+                      </button>
+                    </div>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
